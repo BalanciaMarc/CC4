@@ -1,1 +1,16 @@
+Provide a detailed, step-by-step explanation of how you would manually sort the deck (10pts)
 
+Step 1: Find the card with the lowest rank in the deck, including all duplicates of that rank, and set them aside as part of the sorted pile.
+Step 2: From the remaining unsorted cards, find the next lowest rank, including all duplicates of that rank, and place them next to the previously sorted cards.
+Step 3: Repeat this process of finding the lowest-ranked card and moving them to the sorted pile until no cards remain in the unsorted deck.
+Step 4: Once all cards are in the sorted pile, they will be arranged in ascending order by rank, with duplicates grouped together.
+
+Identify which sorting algorithm your method resembles (e.g., Selection Sort, Insertion Sort, Bubble Sort, Merge
+Selection Sorting 
+
+
+Give a definition for the sorting algorithm your method resembled (5pts)
+Selection Sort is a comparison-based sorting algorithm. It sorts an array by repeatedly selecting the smallest (or largest) element from the unsorted portion and swapping it with the first unsorted element. This process continues until the entire array is sorted.
+
+Justify your choice by comparing your steps to the algorithm’s logic (10pts)
+The steps match Selection Sort because both involve finding the smallest card (or element) in the unsorted part and moving it to the sorted part. In each step, the lowest card is found, including duplicates, and placed in order, just like how Selection Sort places the smallest element in its correct position. This process repeats until everything is sorted, following the same logic as the algorithm
