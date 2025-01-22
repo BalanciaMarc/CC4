@@ -1,0 +1,57 @@
+public class QuickSortDescending {
+
+    public static void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(array, low, high);
+            quickSort(array, low, pivotIndex - 1);
+            quickSort(array, pivotIndex + 1, high);
+        }
+    }
+
+    private static int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (array[j] >= pivot) { // Change the comparison for descending order
+                i++;
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        int temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
+        return i + 1;
+    }
+
+    public static void main(String[] args) {
+        // Generate input array from 1 to 1000
+        int[] array = new int[1000];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;
+        }
+
+        // Shuffle the array
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+
+        // Measure sorting time in seconds
+        long startTime = System.currentTimeMillis();
+        quickSort(array, 0, array.length - 1);
+        long endTime = System.currentTimeMillis();
+
+        // Print sorted array in descending order
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+
+        // Print time taken
+        System.out.println("Time taken: " + (endTime - startTime) / 1000.0 + " seconds");
+    }
+}
