@@ -3,32 +3,47 @@ public class ArrayAddress {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
          
+        // Dimension
         System.out.print("Enter the number of dimension: ");
         int Dimension = sc.nextInt();
-        
-        int[] Upper = new int[Dimension];
-        int totalElements = 1;
-        
-        System.out.print("Enter the upper bound of the dimensions: ");
-        for (int i = 0; i < Dimension; i++) {
-            System.out.print("Dimension " + (i + 1) + ": ");
-            Upper[i] = sc.nextInt();
-            totalElements *= Upper[i];        
-        }
-
-        System.out.print("Enter the of the dimensions");
-        
-        
-        
-        System.out.print("Enter the base or alpha: ");
+               
+        // Base
+        System.out.print("Enter the base: ");
         int Base = sc.nextInt();
-       
-        System.out.print("Enter the element size: ");
-        int Element = sc.nextInt();
-        
 
+        // Esize
+        System.out.print("Enter the element size: ");
+        int Esize = sc.nextInt();
         
+        int[] upperBounds = new int[Dimension];
+        int[] elements = new int[Dimension];
         
-    }
-    
+        // Upper Bounds
+        System.out.println("Enter upper bounds for each dimension:");
+        for (int i = 0; i < Dimension; i++) {
+            System.out.print("Upper bound for dimension " + (i + 1) + ": ");
+            upperBounds[i] = sc.nextInt();
+        }
+        
+        // Target element
+        System.out.println("Enter target indices for each dimension:");
+        for (int i = 0; i < Dimension; i++) {
+            System.out.print("Index for dimension " + (i + 1) + ": ");
+            elements[i] = sc.nextInt();
+        }
+        
+        // Calculation
+        int address = Base;
+        int multiplier = 1;
+
+        for (int i = Dimension - 1; i >= 0; i--) {
+            address += elements[i] * multiplier * Esize;
+            if (i > 0) {
+                multiplier *= upperBounds[i];
+            }
+        }         
+       
+        // Print
+        System.out.println("The address is: " + address);   
+    }  
 }
