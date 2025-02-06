@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class ArrayAddress {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+         
+        System.out.print("Enter the number of dimension: ");
+        int Dimension = sc.nextInt();
+        
+        int[] Upper = new int[Dimension];
+        int totalElements = 1;
+        
+        System.out.print("Enter the upper bound of the dimensions: ");
+        for (int i = 0; i < Dimension; i++) {
+            System.out.print("Dimension " + (i + 1) + ": ");
+            Upper[i] = sc.nextInt();
+            totalElements *= Upper[i];        
+        }
+
+        System.out.print("Enter the of the dimensions");
+        
+        
+        
+        System.out.print("Enter the base or alpha: ");
+        int Base = sc.nextInt();
+       
+        System.out.print("Enter the element size: ");
+        int Element = sc.nextInt();
+        
+
+        
+        
+    }
+    
+}
